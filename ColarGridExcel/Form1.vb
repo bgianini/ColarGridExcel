@@ -37,7 +37,16 @@ Public Class Form1
 
     Private Sub ColarDoExcel(ByVal pAreaTransferencia() As String)
         Try
-            'DataGridView1.ScrollBars = ScrollBars.None
+
+            Dim dt As New DataTable
+            dt.Columns.Add("coluna1")
+            dt.Columns.Add("coluna2")
+            dt.Columns.Add("coluna3")
+            dt.Columns.Add("coluna4")
+            dt.Columns.Add("coluna5")
+
+            DataGridView1.ScrollBars = ScrollBars.None
+            DataGridView1.SuspendLayout() 'Acelerou absurdamente a importacao do CTRL+V
             DataGridView1.Visible = False
 
             lblProcessando.Visible = True
@@ -63,11 +72,16 @@ Public Class Form1
                     Throw New Exception(str)
                 End If
 
+
+                dt.Rows.Add(item)
+                'System.Threading.Thread.Sleep(10)
                 ' Adicionar a linha a DataGridView
-                Me.DataGridView1.Rows.Add(item)
+                ' Me.DataGridView1.Rows.Add(item)
 
 
             Next
+
+            DataGridView1.DataSource = dt
             lblTotalLinhasGrid.Text = DataGridView1.Rows.Count()
             MessageBox.Show("Informações do Excel coladas com sucesso!", My.Application.Info.Title, MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -79,7 +93,10 @@ Public Class Form1
             ProgressBar1.Visible = False
 
             DataGridView1.Visible = True
-            DataGridView1.ScrollBars = ScrollBars.Vertical
+            DataGridView1.ResumeLayout(True) 'Acelerou absurdamente a importacao do CTRL+V
+
+            DataGridView1.ScrollBars = ScrollBars.Both
+
         End Try
 
     End Sub
@@ -92,5 +109,9 @@ Public Class Form1
         Me.Controls.Add(lbl)  'add your new control to your forms control collection
     End Sub
 
-
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'Dim x As String() = {"1", "2", "3", "4", "5"}
+        'DataGridView1.Rows.Add(x)
+        DataGridView1.ScrollBars = ScrollBars.Both
+    End Sub
 End Class
