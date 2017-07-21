@@ -2,7 +2,7 @@
 
 Public Class Form1
 
-    Dim t As Thread
+    'Dim t As Thread
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -15,10 +15,17 @@ Public Class Form1
         'ColarDoExcel()
         Dim vAreaTransferencia As String() = Clipboard.GetText.Split(vbNewLine)
 
+        DataGridView1.Invoke(Sub()
+                                 ColarDoExcel(vAreaTransferencia)
+                             End Sub)
 
-        Control.CheckForIllegalCrossThreadCalls = False
-        t = New Thread(Sub() ColarDoExcel(vAreaTransferencia))
-        t.Start()
+        'Control.CheckForIllegalCrossThreadCalls = False
+        't = New Thread(Sub() ColarDoExcel(vAreaTransferencia))
+        't.Start()
+
+
+
+
 
     End Sub
 
@@ -38,12 +45,12 @@ Public Class Form1
     Private Sub ColarDoExcel(ByVal pAreaTransferencia() As String)
         Try
 
-            Dim dt As New DataTable
-            dt.Columns.Add("coluna1")
-            dt.Columns.Add("coluna2")
-            dt.Columns.Add("coluna3")
-            dt.Columns.Add("coluna4")
-            dt.Columns.Add("coluna5")
+            'Dim dt As New DataTable
+            'dt.Columns.Add("coluna1")
+            'dt.Columns.Add("coluna2")
+            'dt.Columns.Add("coluna3")
+            'dt.Columns.Add("coluna4")
+            'dt.Columns.Add("coluna5")
 
             DataGridView1.ScrollBars = ScrollBars.None
             DataGridView1.SuspendLayout() 'Acelerou absurdamente a importacao do CTRL+V
@@ -52,7 +59,7 @@ Public Class Form1
             lblProcessando.Visible = True
             ProgressBar1.Visible = True
 
-
+            ProgressBar1.Value = 0
             ProgressBar1.Maximum = pAreaTransferencia.Length - 1
 
             ' Ciclo nas linhas copiadas
@@ -73,15 +80,15 @@ Public Class Form1
                 End If
 
 
-                dt.Rows.Add(item)
+                ' dt.Rows.Add(item)
                 'System.Threading.Thread.Sleep(10)
                 ' Adicionar a linha a DataGridView
-                ' Me.DataGridView1.Rows.Add(item)
+                Me.DataGridView1.Rows.Add(item)
 
 
             Next
 
-            DataGridView1.DataSource = dt
+            'DataGridView1.DataSource = dt
             lblTotalLinhasGrid.Text = DataGridView1.Rows.Count()
             MessageBox.Show("Informações do Excel coladas com sucesso!", My.Application.Info.Title, MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -109,9 +116,4 @@ Public Class Form1
         Me.Controls.Add(lbl)  'add your new control to your forms control collection
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'Dim x As String() = {"1", "2", "3", "4", "5"}
-        'DataGridView1.Rows.Add(x)
-        DataGridView1.ScrollBars = ScrollBars.Both
-    End Sub
 End Class

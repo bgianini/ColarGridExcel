@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -32,7 +32,6 @@ Partial Class Form1
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.lblProcessando = New System.Windows.Forms.Label()
         Me.lblTotalLinhasGrid = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -47,7 +46,7 @@ Partial Class Form1
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
         Me.DataGridView1.Location = New System.Drawing.Point(12, 33)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(827, 381)
+        Me.DataGridView1.Size = New System.Drawing.Size(871, 381)
         Me.DataGridView1.TabIndex = 0
         '
         'Column1
@@ -116,21 +115,11 @@ Partial Class Form1
         Me.lblTotalLinhasGrid.TabIndex = 4
         Me.lblTotalLinhasGrid.Text = "Label1"
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(642, 453)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 5
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(895, 488)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblTotalLinhasGrid)
         Me.Controls.Add(Me.lblProcessando)
         Me.Controls.Add(Me.ProgressBar1)
@@ -154,5 +143,4 @@ Partial Class Form1
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents lblProcessando As Label
     Friend WithEvents lblTotalLinhasGrid As Label
-    Friend WithEvents Button1 As Button
 End Class
