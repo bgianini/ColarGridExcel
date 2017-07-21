@@ -68,7 +68,7 @@ Public Class Form1
 
 
             Next
-
+            lblTotalLinhasGrid.Text = DataGridView1.Rows.Count()
             MessageBox.Show("Informações do Excel coladas com sucesso!", My.Application.Info.Title, MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception

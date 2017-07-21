@@ -31,6 +31,7 @@ Partial Class Form1
         Me.btnImportarExcel = New System.Windows.Forms.Button()
         Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
         Me.lblProcessando = New System.Windows.Forms.Label()
+        Me.lblTotalLinhasGrid = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -86,7 +87,7 @@ Partial Class Form1
         '
         Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ProgressBar1.Location = New System.Drawing.Point(12, 424)
+        Me.ProgressBar1.Location = New System.Drawing.Point(12, 283)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(871, 23)
         Me.ProgressBar1.TabIndex = 2
@@ -103,11 +104,22 @@ Partial Class Form1
         Me.lblProcessando.TabIndex = 3
         Me.lblProcessando.Text = "Processando... Aguarde!"
         '
+        'lblTotalLinhasGrid
+        '
+        Me.lblTotalLinhasGrid.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lblTotalLinhasGrid.AutoSize = True
+        Me.lblTotalLinhasGrid.Location = New System.Drawing.Point(12, 421)
+        Me.lblTotalLinhasGrid.Name = "lblTotalLinhasGrid"
+        Me.lblTotalLinhasGrid.Size = New System.Drawing.Size(39, 13)
+        Me.lblTotalLinhasGrid.TabIndex = 4
+        Me.lblTotalLinhasGrid.Text = "Label1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(895, 488)
+        Me.Controls.Add(Me.lblTotalLinhasGrid)
         Me.Controls.Add(Me.lblProcessando)
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.btnImportarExcel)
@@ -129,4 +141,5 @@ Partial Class Form1
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents ProgressBar1 As ProgressBar
     Friend WithEvents lblProcessando As Label
+    Friend WithEvents lblTotalLinhasGrid As Label
 End Class
