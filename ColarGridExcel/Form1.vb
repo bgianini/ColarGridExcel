@@ -64,13 +64,15 @@ Public Class Form1
 
             ' Ciclo nas linhas copiadas
             'For Each line As String In Clipboard.GetText.Split(vbNewLine)
-            For Each line As String In pAreaTransferencia
+            For Each line As String In pAreaTransferencia.AsParallel().AsOrdered()
 
                 If line.Length = 1 Then Exit For 'Para retirar a ultima linha (estava com bug)
 
                 ProgressBar1.Value += 1
                 ' Separa as colunas referentes à linha actual
-                Dim item() As String = line.Trim.Split(vbTab)
+                'Dim item() As String = line.Trim.Split(vbTab)
+                Dim item() As String = line.Replace(vbTab, ";").Trim.Split(";") 'Para retirar o bug caso a celula do excel esteja vazia
+
 
                 ' Se o número de colunas for diferente mostra uma mensagem de erro
                 If item.Length <> Me.DataGridView1.ColumnCount Then
