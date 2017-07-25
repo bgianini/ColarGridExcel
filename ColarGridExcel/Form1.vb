@@ -81,7 +81,7 @@ Public Class Form1
                     Throw New Exception(str)
                 End If
 
-
+                'teste merge
                 ' dt.Rows.Add(item)
                 'System.Threading.Thread.Sleep(10)
                 ' Adicionar a linha a DataGridView
